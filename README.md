@@ -35,11 +35,12 @@ $ cd /Applications/Python\ [VERSION]\
 $ ./Install\ Certificates.command
 ```
 
-#### Autoconf
+#### Autoconf and Binutils
 
 Open a terminal:
 ```
 $ brew install autoconf
+$ brew install binutils
 ```
 
 #### JDK 17
