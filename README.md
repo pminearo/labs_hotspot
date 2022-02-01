@@ -2,7 +2,7 @@
 
 ## Links
 
-* [Grall JVMCI 8](https://github.com/graalvm/graal-jvmci-8)
+* [Grall Labs OpenJDK 17](https://github.com/graalvm/labs-openjdk-17)
 * [GraalVM mx](https://github.com/graalvm/mx)
 * [Graal](https://github.com/oracle/graal/)
 
@@ -107,8 +107,9 @@ $ source .zshrc
 # Build GraalVM
 $ git clone https://github.com/oracle/graal
 $ cd graal/vm
+$ mx --env libgraal build
+# Prints path of the build result
+$ mx --env libgraal graalvm-home
 # Sanity check, this should print GraalVM + version: 
 $ $(mx --env libgraal graalvm-home)/bin/java -version
-# This prints the path of the build result
-$ mx --env libgraal build
 ```
