@@ -1,10 +1,12 @@
-# Building GraalVM Locally
+# Building GraalVM Locally for macOS Apple Silicon
 
 ## Links
 
-* [Grall Labs OpenJDK 17](https://github.com/graalvm/labs-openjdk-17)
-* [GraalVM mx](https://github.com/graalvm/mx)
-* [Graal](https://github.com/oracle/graal/)
+Clone the following repositories into the same directory:
+
+* Graal Labs OpenJDK 17: https://github.com/graalvm/labs-openjdk-17
+* GraalVM mx: https://github.com/graalvm/mx
+* GraalVM: https://github.com/oracle/graal/
 
 ## Setup
 
@@ -23,6 +25,8 @@ $ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 $ xcodebuild -version
 ```
 
+Should be around `Xcode 13.2` at the time of this writing.
+
 #### Python 3
 
 Open a terminal:
@@ -35,20 +39,21 @@ $ cd /Applications/Python\ [VERSION]\
 $ ./Install\ Certificates.command
 ```
 
-#### Autoconf and Binutils
+#### Autoconf
 
 Open a terminal:
 ```
 $ brew install autoconf
-$ brew install binutils
 ```
 
-#### JDK 17
+#### JDK17
 
-Make sure JDK 17 is installed:
+Make sure JDK17 is installed:
 
 Open a browser and download:
 https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_macos-aarch64_bin.tar.gz
+
+Any other JDK17 built for macOS AArch64 (aka. M1 aka. Apple Silicon) should work as well (e.g. Azul, Microsoft or Oracle).
 
 Open a terminal:
 ```
@@ -70,14 +75,12 @@ $ source .zshrc
 
 ## Build
 
-Here some instructions how I’m doing things right now:
-* build labs-jdk17
 ```
 # Build Labs OpenJDK17
 $ cd $REPO_DIR
 $ git clone https://github.com/graalvm/labs-openjdk-17
 $ cd labs-openjdk-17
-$ bash configure --with-debug-level=slowdebug --with-boot-jdk=$(echo /path/to/bootjdk/from/above)
+$ bash configure --with-boot-jdk=$(echo /path/to/bootjdk/from/above)
 # If this command fails, try this patch: https://gist.github.com/lewurm/1795f25362554f4a72b4eb6cb8001a4e
 # Edit: $REPO_DIR/labs-openjdk-17/make/autoconf/toolchain.m4 
 # Change: XCODE_VERSION_OUTPUT=`"$XCODEBUILD" -version 2>&1 | $HEAD -n 1`
