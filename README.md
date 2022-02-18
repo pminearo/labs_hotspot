@@ -2,6 +2,8 @@
 
 ## Links
 
+GraalVM Issue: https://github.com/oracle/graal/issues/2666
+
 Clone the following repositories into the same directory:
 
 * Graal Labs OpenJDK 17: https://github.com/graalvm/labs-openjdk-17
